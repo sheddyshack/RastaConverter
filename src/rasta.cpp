@@ -1386,7 +1386,7 @@ void RastaConverter::TestRasterProgram(raster_picture *pic)
 
 void RastaConverter::ShowMutationStats()
 {
-	// Not all implementations of "to_string" do a locale thousands separator so using "format" to enforce it
+	// only some implementations of "to_string" do a locale thousands separator so changed to "format" to enforce it
 	for (int i=0;i<E_MUTATION_MAX;++i)
 	{
 		gui.DisplayText(0, 250 + 20 * i, string(mutation_names[i]) + string("  ") + format("{:L}", m_eval_gstate.m_mutation_stats[i]));
@@ -1790,7 +1790,7 @@ void RastaConverter::LoadRasterProgram(string name)
 		// get info about the file
 		pos=line.find("; Evaluations:");
 		if (pos!=string::npos)
-			m_eval_gstate.m_evaluations=String2Value<unsigned int>(line.substr(pos+15));
+			m_eval_gstate.m_evaluations=String2Value<long long>(line.substr(pos+15));
 
 		pos=line.find("; InputName:");
 		if (pos!=string::npos)
@@ -1881,7 +1881,7 @@ void RastaConverter::SaveRasterProgram(string name, raster_picture *pic)
 	fprintf(fp,"; RastaConverter by Ilmenit v.%s\n",program_version);
 	fprintf(fp,"; InputName: %s\n",cfg.input_file.c_str());
 	fprintf(fp,"; CmdLine: %s\n",cfg.command_line.c_str());
-	fprintf(fp,"; Evaluations: %lu\n", (long unsigned)m_eval_gstate.m_evaluations);
+	fprintf(fp,"; Evaluations: %llu\n", (long long unsigned)m_eval_gstate.m_evaluations);
 	fprintf(fp,"; Score: %g\n",NormalizeScore(m_eval_gstate.m_best_result));
 	fprintf(fp,"; ---------------------------------- \n");
 
