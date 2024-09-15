@@ -38,14 +38,14 @@
       <AppCollection>
         <AppDataViewModel>
           <Application>$(TargetPath)</Application>
-          <Arguments>nyan_cat_by_vexcel.png /s=1 /save=10000 /max_evals=70000 /threads=4</Arguments>
+          <Arguments>nyan_cat_by_vexcel.png /dither=floyd /s=1 /save=10000 /max_evals=70000 /threads=4</Arguments>
           <Directory>$(ProjectDir)</Directory>
           <Environment />
           <MergeEnvironment>true</MergeEnvironment>
         </AppDataViewModel>
         <AppDataViewModel>
           <Application>$(TargetPath)</Application>
-          <Arguments>nyan_cat_by_vexcel.png /s=50 /save=10000 /max_evals=70000 /threads=4</Arguments>
+          <Arguments>nyan_cat_by_vexcel.png /dither=floyd /s=50 /save=10000 /max_evals=70000 /threads=4</Arguments>
           <Directory>$(ProjectDir)</Directory>
           <Environment />
           <MergeEnvironment>true</MergeEnvironment>
